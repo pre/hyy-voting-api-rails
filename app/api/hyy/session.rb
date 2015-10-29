@@ -1,9 +1,25 @@
 module HYY
 
   module Entities
+    class Election < Grape::Entity
+      expose :id
+      expose :faculty # TODO ?
+      expose :name
+      expose :faculty_id
+      expose :department_id
+
+      # TODO:
+      # alliances:
+      # candidates:
+      # voted_at:
+      # type:
+    end
+  end
+
+  module Entities
     class Token < Grape::Entity
       expose :jwt
-      expose :elections
+      expose :elections, using: HYY::Entities::Election
     end
   end
 
